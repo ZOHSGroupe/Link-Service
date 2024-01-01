@@ -26,6 +26,7 @@ $ npm run start:prod
 # docker-compose
 $ docker compose up
 ```
+- API port : 3000
 - Open pgAdmin in your browser : [PgAdmin](http://localhost:5050)
 
 ## Stay in touch :
