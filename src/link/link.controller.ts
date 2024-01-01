@@ -10,7 +10,8 @@ export class LinkController {
   @Post()
   async create(@Body() createLinkDto: CreateLinkDto, @Res() res) {
     try{
-      res.status(HttpStatus.CREATED).json(await this.linkService.createLink(createLinkDto));
+      await this.linkService.createLink(createLinkDto)
+      res.status(HttpStatus.CREATED).json({ message: 'Link added successfully' });
     }catch(error){
       // Handle any errors (log, return an error response, etc.)
       res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: 'Error fetching link' });
@@ -57,7 +58,7 @@ export class LinkController {
       const updatedLink = await this.linkService.updateLink(source, type, id, updateLinkDto);
 
       if (updatedLink) {
-        res.status(HttpStatus.OK).json(updatedLink);
+        res.status(HttpStatus.OK).json({ message: 'Link updated successfully' });
       } else {
         res.status(HttpStatus.NOT_FOUND).json({ message: 'Link not found' });
       }
