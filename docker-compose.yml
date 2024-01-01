@@ -11,6 +11,11 @@ services:
       - ./pgdata:/var/lib/postgresql/data
     ports:
       - '${DB_PORT}:5432'
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     networks:
       - mynetwork
 
@@ -24,7 +29,8 @@ services:
     ports:
       - '${LINK_SERVICE_LOCAL_PORT}:${LINK_SERVICE_DOCKER_PORT}'
     depends_on:
-      - db
+      db:
+        condition: service_healthy  # Wait for the healthcheck to succeed
     volumes:
       - ./src:/app/src
     networks:
@@ -40,7 +46,8 @@ services:
     ports:
       - '5050:80'
     depends_on:
-      - db
+      db:
+        condition: service_healthy  # Wait for the healthcheck to succeed
     networks:
       - mynetwork
 
