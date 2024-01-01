@@ -34,8 +34,8 @@ $ npm run test:cov
 ```
 ## Stay in touch :
 - Author - [Ouail Laamiri](https://www.linkedin.com/in/ouaillaamiri/) 
-- Test - [Postman](https://www.postman.com/avionics-meteorologist-32935362/workspace/postman-api-fundamentals-student-expert/collection/29141176-d922c605-2315-488b-850b-e47edeccdaf1?action=share&creator=29141176)
-- Documentation - [Postman](https://documenter.getpostman.com/view/29141176/2s9YsDkamW)
+- Test - [Postman]()
+- Documentation - [Postman]()
 
 ## License
 
