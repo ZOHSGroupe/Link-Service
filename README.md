@@ -39,4 +39,4 @@ $ npm run test:cov
 
 ## License
 
-Contract-Service is [MIT licensed](LICENSE).
+Link-Service is [MIT licensed](LICENSE).
