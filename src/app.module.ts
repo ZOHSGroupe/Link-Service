@@ -10,14 +10,15 @@ dotenv.config();
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'mysql',
+      type: 'postgres',
       host: process.env.DB_HOST || 'localhost',
-      port: parseInt(process.env.DB_PORT, 10) || 3306,
-      username: process.env.DB_USER || 'root',
-      password: process.env.DB_PASSWORD || 'admin',
+      port: parseInt(process.env.DB_PORT, 10) || 5432,
+      username: process.env.DB_USER || 'postgres',
+      password: process.env.DB_PASSWORD || 'postgres',
       database: process.env.DB_NAME || 'link_db',
       entities: [LinkEntity],
-      synchronize: true,
+      synchronize: process.env.NODE_ENV !== 'production', // Set to true in development, false in production
+      autoLoadEntities: true, 
     }),
     LinkModule
   ],
