@@ -90,4 +90,4 @@ $ docker compose up
 
 ## License
 
-Link-Service is [MIT licensed](LICENSE).
+Link-Service is [GPL licensed](LICENSE).
